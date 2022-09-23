@@ -1,8 +1,8 @@
 package Array;
 
 public class ParentClass {
-    void parent(){
-        System.out.println("Im parent");
+    void parent(ChildClass out){
+        out.child();
     }
 }
 class ChildClass extends ParentClass{
@@ -10,9 +10,11 @@ class ChildClass extends ParentClass{
         System.out.println("Im Child");
     }
 }
-class SolutionClass{
+
+class SolutionClass {
     public static void main(String[] args) {
-        ParentClass a = new ChildClass();
-        ((ChildClass)a).child();
+        ChildClass ref = new ChildClass();
+        ParentClass p = new ParentClass();
+        p.parent(ref);
     }
 }
